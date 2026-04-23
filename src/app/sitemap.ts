@@ -1,37 +1,33 @@
-import { careTypes } from "@/data/care-types";
-import { lifeHereSections } from "@/data/life-here";
-import { resourcePages } from "@/data/resources-pages";
-import { blogPosts } from "@/data/blog-posts";
+import blogPostsData from "@/data/blog-posts.json";
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.SITE_URL ?? "https://example.com";
+export const dynamic = "force-static";
+
+const BASE_URL = process.env.SITE_URL ?? "https://www.opsselfstorage.com";
+
+interface BlogPost {
+  slug: string;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",
     "/about",
-    "/about/our-team",
     "/contact",
-    "/schedule-tour",
-    "/pricing",
-    "/living-options",
-    "/life-here",
-    "/resources",
-    "/resources/blog",
+    "/facility",
+    "/size-guide",
+    "/blog",
+    "/storage-oklahoma",
+    "/storage-oklahoma-city",
+    "/storage-edmond",
+    "/storage-moore",
   ];
 
-  const careTypePages = careTypes.map((ct) => `/living-options/${ct.slug}`);
-  const lifeHerePages = lifeHereSections.map((s) => `/life-here/${s.slug}`);
-  const resourceSubPages = resourcePages.map((r) => `/resources/${r.slug}`);
-  const blogPages = blogPosts.map((p) => `/resources/blog/${p.slug}`);
+  const blogPages = (blogPostsData as BlogPost[]).map(
+    (p) => `/blog/${p.slug}`
+  );
 
-  const allPages = [
-    ...staticPages,
-    ...careTypePages,
-    ...lifeHerePages,
-    ...resourceSubPages,
-    ...blogPages,
-  ];
+  const allPages = [...staticPages, ...blogPages];
 
   return allPages.map((path) => ({
     url: `${BASE_URL}${path}`,
