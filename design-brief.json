@@ -1,0 +1,52 @@
+{
+  "colors": {
+    "primary": "#c0c0c0",
+    "secondary": "#808080",
+    "accent": "#e5e5e5",
+    "background": "#050505",
+    "surface": "#111111",
+    "text": "#e5e5e5",
+    "muted": "#666666"
+  },
+  "typography": {
+    "headingFont": "Bebas Neue",
+    "bodyFont": "Manrope",
+    "monoFont": "JetBrains Mono",
+    "scale": "spacious"
+  },
+  "spacing": "default",
+  "borderRadius": "sm",
+  "shadows": "dramatic",
+  "mood": "Black chrome luxury — polished metal reflections, automotive showroom darkness",
+  "motionStyle": "moderate",
+  "layoutStyle": "showroom-spec",
+  "designRules": [
+    "LAYOUT: Automotive showroom spec-sheet style — all-caps Bebas Neue headlines, chrome gradient text effects (via text-transparent bg-clip-text). Unit specs displayed as horizontal spec rows. Dark surfaces with thin chrome borders.",
+    "Silver/chrome palette on pure black creates a luxury automotive showroom feel",
+    "Use gradient metallic effects (dark gray to silver) for headings and accents",
+    "Tall condensed headlines (Bebas Neue) feel like luxury car branding",
+    "Small border radius keeps everything sharp and precision-engineered",
+    "Chrome-tinted borders (thin, semi-transparent white) define surfaces",
+    "Unit tables have chrome-silver borders and uppercase Bebas Neue headers — feels like a showroom spec sheet",
+    "Reserve buttons use gradient chrome-to-white with dark text — the most polished element on the page",
+    "CONVERSION: Facility pages use Layout Option A (units-first) — instrument-panel facility info row, then horizontal spec rows for all units. Maximum units visible as data rows above fold. Search in hero. On market pages, spec-table layout per facility.",
+    "CONVERSION: Reserve/CTA buttons must be the single most visually prominent element on every page — larger than navigation links, higher contrast than body text, with hover state that increases visual weight. Use the primary color at full saturation. Every unit card and table row MUST have a Reserve button.",
+    "CONVERSION: Use badges to show real-time social proof and urgency — 'Most Popular' on the best-selling size, 'X Left!' in a warning color when availability is low, 'Available' in a success color for in-stock units. Price must be the largest text element in every unit card, displayed in the primary or accent color."
+  ],
+  "designPatterns": {
+    "card": "<div className=\"bg-surface rounded-md p-7 border border-white/8 shadow-2xl shadow-black/40 hover:border-white/15 transition-all\">",
+    "button": "<a className=\"bg-gradient-to-r from-primary to-accent text-background font-bold px-8 py-3.5 rounded-md uppercase tracking-[0.2em] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all\">",
+    "buttonSecondary": "<a className=\"border border-white/15 text-text font-semibold px-8 py-3.5 rounded-md uppercase tracking-[0.15em] hover:bg-white/5 transition-all\">",
+    "heading": "<h2 className=\"font-heading text-6xl md:text-8xl text-text uppercase tracking-[0.1em] leading-[0.85]\">",
+    "subheading": "<p className=\"text-lg text-text-muted leading-relaxed max-w-2xl tracking-wide\">",
+    "badge": "<span className=\"inline-flex items-center bg-white/5 border border-white/10 rounded-sm px-4 py-1.5 text-sm font-medium text-text-muted uppercase tracking-wider\">",
+    "input": "<input className=\"w-full bg-background border border-white/10 rounded-md px-5 py-3.5 text-text placeholder:text-text-muted focus:outline-none focus:border-white/25 focus:ring-1 focus:ring-white/10 transition\" />",
+    "sectionBg": "bg-background",
+    "sectionAltBg": "bg-surface",
+    "sectionDarkBg": "bg-gradient-to-b from-surface via-background to-surface/30",
+    "navStyle": "bg-background/80 backdrop-blur-xl border-b border-white/5",
+    "footerStyle": "bg-surface border-t border-white/5",
+    "iconBox": "<div className=\"h-13 w-13 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-primary\">",
+    "divider": "<div className=\"h-px bg-gradient-to-r from-transparent via-white/10 to-transparent\">"
+  }
+}

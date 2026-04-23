@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NoCMS Site",
+  title: "OP Self Storage",
   description: "Built with NoCMS",
 };
 
@@ -15,10 +13,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-body antialiased text-text bg-background">
-        <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-body antialiased">
+        {children}
       </body>
     </html>
   );
