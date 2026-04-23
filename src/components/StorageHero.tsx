@@ -84,13 +84,13 @@ export function StorageHero({
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder="Enter zip code or city..."
-                className="w-full bg-surface border border-white/10 rounded-sm pl-11 pr-4 py-4 text-text placeholder:text-muted focus:outline-none focus:border-white/25 focus:ring-1 focus:ring-white/10 transition-colors"
+                className="w-full bg-surface border border-white/10 rounded-sm pl-11 pr-4 py-4 text-text placeholder:text-muted focus-visible:outline-none focus-visible:border-white/25 focus-visible:ring-1 focus-visible:ring-white/10 transition-colors"
                 aria-label="Enter zip code or city to find storage"
               />
             </div>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent text-background font-bold px-8 py-4 rounded-sm uppercase tracking-[0.2em] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent text-background font-bold px-8 py-4 rounded-sm uppercase tracking-[0.2em] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <Search className="h-4 w-4" aria-hidden="true" />
               Find Units

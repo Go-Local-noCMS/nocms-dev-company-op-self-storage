@@ -58,7 +58,7 @@ export function UnitTable({ units = defaultUnits, heading = "Available Storage U
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`px-4 py-1.5 rounded-sm text-xs font-medium uppercase tracking-wider border transition-colors ${
+                className={`px-4 py-1.5 rounded-sm text-xs font-medium uppercase tracking-wider border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background ${
                   filter === f
                     ? "bg-primary text-background border-primary"
                     : "border-white/10 text-muted hover:border-white/20 hover:text-text"
@@ -134,14 +134,14 @@ export function UnitTable({ units = defaultUnits, heading = "Available Storage U
                       {unit.availability !== "waitlist" ? (
                         <a
                           href={`/contact?unit=${unit.size}`}
-                          className="inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-background font-bold px-5 py-2.5 rounded-sm text-sm uppercase tracking-[0.15em] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                          className="inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-background font-bold px-5 py-2.5 rounded-sm text-sm uppercase tracking-[0.15em] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
                           Reserve <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
                         </a>
                       ) : (
                         <a
                           href="/contact?type=waitlist"
-                          className="inline-flex items-center gap-1.5 border border-white/15 text-muted font-medium px-5 py-2.5 rounded-sm text-sm uppercase tracking-[0.15em] hover:border-white/25 transition-colors"
+                          className="inline-flex items-center gap-1.5 border border-white/15 text-muted font-medium px-5 py-2.5 rounded-sm text-sm uppercase tracking-[0.15em] hover:border-white/25 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
                           Waitlist
                         </a>
@@ -193,12 +193,15 @@ export function UnitTable({ units = defaultUnits, heading = "Available Storage U
                   {unit.availability !== "waitlist" ? (
                     <a
                       href={`/contact?unit=${unit.size}`}
-                      className="inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-background font-bold px-5 py-2.5 rounded-sm text-sm uppercase tracking-[0.15em] shadow-lg hover:-translate-y-0.5 transition-all"
+                      className="inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-accent text-background font-bold px-5 py-2.5 rounded-sm text-sm uppercase tracking-[0.15em] shadow-lg hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     >
                       Reserve <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
                     </a>
                   ) : (
-                    <a href="/contact?type=waitlist" className="border border-white/15 text-muted font-medium px-4 py-2 rounded-sm text-sm uppercase tracking-[0.15em]">
+                    <a
+                      href="/contact?type=waitlist"
+                      className="border border-white/15 text-muted font-medium px-4 py-2 rounded-sm text-sm uppercase tracking-[0.15em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    >
                       Waitlist
                     </a>
                   )}
