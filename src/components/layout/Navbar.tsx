@@ -17,8 +17,8 @@ export function Navbar({
   logo = skinConfig.brandName,
   links = navigationLinks,
   phone = skinConfig.phone,
-  ctaText = "Schedule a Tour",
-  ctaHref = "/schedule-tour",
+  ctaText = "Reserve a Unit",
+  ctaHref = "/facility",
 }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -48,30 +48,27 @@ export function Navbar({
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? "bg-primary shadow-lg shadow-primary/15"
-          : "bg-primary"
+          ? "bg-background/95 backdrop-blur-xl border-b border-white/8 shadow-xl shadow-black/40"
+          : "bg-background/80 backdrop-blur-xl border-b border-white/5"
       }`}
     >
-      {/* Skip link */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-background focus:px-4 focus:py-2 focus:rounded-sm focus:font-semibold"
       >
         Skip to main content
       </a>
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <div className="flex h-[72px] items-center justify-between">
+        <div className="flex h-[68px] items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 group">
-            <div className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center">
-              <span className="text-white font-heading text-lg font-bold">
-                {logo.charAt(0)}
-              </span>
+            <div className="h-8 w-8 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center">
+              <span className="font-heading text-base text-primary font-bold">OP</span>
             </div>
-            <span className="font-heading text-xl font-bold text-white tracking-tight group-hover:text-white/80 transition-colors">
+            <span className="font-heading text-lg text-text tracking-wide group-hover:text-primary transition-colors">
               {logo}
             </span>
           </a>
@@ -87,7 +84,7 @@ export function Navbar({
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <button
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/85 hover:text-white transition-colors rounded-md hover:bg-white/8"
+                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-muted hover:text-text transition-colors rounded-sm hover:bg-white/5"
                     aria-expanded={openDropdown === link.label}
                     aria-haspopup="true"
                     onClick={() => toggleDropdown(link.label)}
@@ -95,19 +92,19 @@ export function Navbar({
                   >
                     {link.label}
                     <ChevronDown
-                      className={`h-3.5 w-3.5 opacity-60 transition-transform ${
+                      className={`h-3.5 w-3.5 opacity-50 transition-transform duration-200 ${
                         openDropdown === link.label ? "rotate-180" : ""
                       }`}
                       aria-hidden="true"
                     />
                   </button>
                   {openDropdown === link.label && (
-                    <div className="absolute top-full left-0 mt-2 w-72 rounded-md bg-background border border-text/5 shadow-xl shadow-text/10 py-2">
+                    <div className="absolute top-full left-0 mt-1 w-64 rounded-sm bg-surface border border-white/10 shadow-2xl shadow-black/60 py-2">
                       {link.children.map((child) => (
                         <a
                           key={child.href}
                           href={child.href}
-                          className="flex items-start gap-3 px-4 py-3 text-sm text-text/80 hover:text-text hover:bg-surface transition-colors"
+                          className="flex items-start gap-3 px-4 py-3 text-sm text-muted hover:text-text hover:bg-white/5 transition-colors"
                         >
                           <div>
                             <span className="font-semibold text-text block">{child.label}</span>
@@ -124,7 +121,7 @@ export function Navbar({
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-white/85 hover:text-white transition-colors rounded-md hover:bg-white/8"
+                  className="px-4 py-2 text-sm font-medium text-muted hover:text-text transition-colors rounded-sm hover:bg-white/5"
                 >
                   {link.label}
                 </a>
@@ -133,17 +130,17 @@ export function Navbar({
           </div>
 
           {/* Right side */}
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-              className="flex items-center gap-2 text-sm text-white/80 hover:text-white font-semibold transition-colors"
+              className="flex items-center gap-2 text-sm text-muted hover:text-text font-medium transition-colors"
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
               <span>{phone}</span>
             </a>
             <a
               href={ctaHref}
-              className="bg-sand text-primary-dark font-semibold px-5 py-2.5 rounded-md text-sm shadow-md hover:bg-background hover:shadow-lg hover:-translate-y-0.5 transition-all focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+              className="bg-gradient-to-r from-primary to-accent text-background font-bold px-5 py-2.5 rounded-sm text-sm uppercase tracking-[0.15em] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-transform focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {ctaText}
             </a>
@@ -151,27 +148,27 @@ export function Navbar({
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded-md hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-white"
+            className="lg:hidden p-2 rounded-sm hover:bg-white/8 transition-colors focus-visible:ring-2 focus-visible:ring-primary"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? (
-              <X className="h-6 w-6 text-white" />
+              <X className="h-6 w-6 text-text" />
             ) : (
-              <Menu className="h-6 w-6 text-white" />
+              <Menu className="h-6 w-6 text-text" />
             )}
           </button>
         </div>
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden border-t border-white/10 py-4 space-y-1">
+          <div className="lg:hidden border-t border-white/8 py-4 space-y-1">
             {(links ?? []).map((link) => (
               <div key={link.label}>
                 <a
                   href={link.href}
-                  className="block px-4 py-3 text-base font-medium text-white/85 hover:text-white hover:bg-white/8 rounded-md transition-colors"
+                  className="block px-4 py-3 text-base font-medium text-muted hover:text-text hover:bg-white/5 rounded-sm transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -181,7 +178,7 @@ export function Navbar({
                     <a
                       key={child.href}
                       href={child.href}
-                      className="block pl-8 pr-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/8 rounded-md transition-colors"
+                      className="block pl-8 pr-4 py-2.5 text-sm text-muted/70 hover:text-text hover:bg-white/5 rounded-sm transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       {child.label}
@@ -189,17 +186,17 @@ export function Navbar({
                   ))}
               </div>
             ))}
-            <div className="pt-4 px-4 space-y-3 border-t border-white/10 mt-4">
+            <div className="pt-4 px-4 space-y-3 border-t border-white/8 mt-4">
               <a
                 href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-                className="flex items-center gap-2 text-sm text-white/80 font-semibold"
+                className="flex items-center gap-2 text-sm text-muted font-medium"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 {phone}
               </a>
               <a
                 href={ctaHref}
-                className="block text-center bg-secondary text-white font-semibold px-6 py-3 rounded-md shadow-lg"
+                className="block text-center bg-gradient-to-r from-primary to-accent text-background font-bold px-6 py-3 rounded-sm text-sm uppercase tracking-[0.15em] shadow-lg"
               >
                 {ctaText}
               </a>

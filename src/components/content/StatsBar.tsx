@@ -14,10 +14,10 @@ interface StatsBarProps {
 }
 
 const defaultStats: Stat[] = [
-  { value: "24/7", label: "Nursing Staff On-Site" },
-  { value: "1:6", label: "Staff-to-Resident Ratio" },
-  { value: "100", label: "Resident Satisfaction", suffix: "%" },
-  { value: "15", label: "Years of Excellence", suffix: "+" },
+  { value: "25", label: "Years in Business", suffix: "+" },
+  { value: "4", label: "Oklahoma Locations" },
+  { value: "1,200", label: "5-Star Reviews", suffix: "+" },
+  { value: "100", label: "Price Lock Guarantee", suffix: "%" },
 ];
 
 export function StatsBar({ stats = defaultStats, className = "" }: StatsBarProps) {
@@ -43,7 +43,7 @@ export function StatsBar({ stats = defaultStats, className = "" }: StatsBarProps
   return (
     <section
       ref={containerRef}
-      className={`bg-primary-dark py-12 lg:py-16 ${className}`}
+      className={`bg-surface border-y border-white/8 py-12 lg:py-16 ${className}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -55,11 +55,12 @@ export function StatsBar({ stats = defaultStats, className = "" }: StatsBarProps
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <p className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
+              <p className="font-heading text-4xl sm:text-5xl lg:text-6xl text-transparent bg-clip-text mb-2"
+                style={{ backgroundImage: "linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 60%, #808080 100%)" }}>
                 {stat.value}
-                {stat.suffix && <span className="text-white/70">{stat.suffix}</span>}
+                {stat.suffix && <span>{stat.suffix}</span>}
               </p>
-              <p className="text-white/75 text-sm font-medium uppercase tracking-wider">
+              <p className="text-muted text-xs font-medium uppercase tracking-wider">
                 {stat.label}
               </p>
             </div>
